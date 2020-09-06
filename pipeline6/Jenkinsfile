@@ -38,5 +38,11 @@ pipeline {
                 sh './pipeline6/jenkins/push/push.sh'
             }
         }
+
+        stage('Push') {
+            steps {
+                sh './pipeline6/jenkins/push/push.sh'
+            }
+        }
     }
 }
