@@ -1,0 +1,5 @@
+version: '3'
+services:
+  maven:
+    image: 'phathdt379/$IMAGE:$TAG'
+    container_name: maven_app
