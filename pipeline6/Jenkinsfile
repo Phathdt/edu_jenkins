@@ -2,10 +2,6 @@ pipeline {
     //agent none
     agent any
 
-    environment {
-        // PASS = credentials('registry-pass')
-    }
-
     stages {
         stage('Build') {
             //agent {label 'mynode2'}
