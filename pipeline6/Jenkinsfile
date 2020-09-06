@@ -4,7 +4,6 @@ pipeline {
 
     stages {
         stage('Build') {
-            //agent {label 'mynode2'}
             steps {
                 sh '''
                     ./pipeline6/jenkins/build/mvn.sh mvn -B -DskipTests clean package
@@ -18,5 +17,18 @@ pipeline {
                 }
             }
         }
+
+        stage('Test') {
+            steps {
+                sh './pipeline6/jenkins/test/mvn.sh mvn test'
+            }
+
+            post {
+                always {
+                    junit 'pipeline6/java-app/target/surefire-reports/*.xml'
+                }
+            }
+        }
+
     }
 }
