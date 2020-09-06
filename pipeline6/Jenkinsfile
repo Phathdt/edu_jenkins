@@ -1,6 +1,9 @@
 pipeline {
-    //agent none
     agent any
+
+    environment {
+        PASS = credentials('DOCKER_HUB_PASS')
+    }
 
     stages {
         stage('Build') {
@@ -30,5 +33,10 @@ pipeline {
             }
         }
 
+        stage('Push') {
+            steps {
+                sh './pipeline6/jenkins/push/push.sh'
+            }
+        }
     }
 }
